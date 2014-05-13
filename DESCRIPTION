@@ -1,18 +1,26 @@
-Package: cutoff
+Package: cutoffR
 Type: Package
-Title: Spatio-temporal Imputation Methods
+Title: CUTOFF: A Spatio-temporal Imputation Method
 Version: 1.0
 Date: 2013-05-15
-Author: Lingbing Feng
-Maintainer: Lingbing Feng <lingbing.feng@anu.edu.au>
-Description: This package provides a set of tools for spatio-temporal imputation in R.
-          It includes a new CUTOFF imputation method, a useful cross-validation method 
-          working seemlessly with some other imputation functions to help them determining 
-          an optimal value for their key parameters, such as the optimal number of k-nereast
-          neighbors for the KNN imputation method and the optimal number of components for 
-          the SVD imputation method. It also contains a set of tools for simulating 
-          data with missing values with respect to some specific missing pattern. Some useful
-          visulisation functions are provided.
-Depends: R (>= 2.14.1), ggplot2, SpatioTemporal, DMwR, grid, missForest
-Imports: mice     
-License: GPL
+Author: Lingbing Feng, Gen Nowak, Alan. H. Welsh, Terry. J. O'Neill
+Maintainer: Lingbing Feng <fenglb88@gmail.com>
+Description: This package provides a set of tools for spatio-temporal imputation 
+          in R. It includes the implementation for then CUTOFF imputation method, 
+          a useful cross-validation function that can be used not only by the 
+          CUTOFF method but also by some other imputation  functions to help 
+          choosing an optimal value for relevant parameters, such as the number 
+          of k-nearest neighbors for the KNN imputation method, or the number of
+          components for the SVD imputation method. It also contains tools for 
+          simulating data with missing values with respect to some specific 
+          missing pattern, for example, block missing. Some useful visualisation
+          functions for imputation purposes are also provided in the package. 
+LazyLoad: yes
+Repository: CRAN
+Depends: R (>= 3.1.0)
+Imports: ggplot2, reshape2
+NeedsCompilation: no
+License: GPL-2
+
+
+

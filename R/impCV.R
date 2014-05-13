@@ -1,9 +1,22 @@
-impCV <-
-function (data, FUN = Cut, date.info = TRUE, cfold = 10, rfold = 10, ...) 
-{
-  
+#' Cross-validation for spatio-temporal imputation
+#' 
+#' @param data a data matrix with missing values
+#' @param FUN the imputation function to be evaluated by cross-validation
+#' @param date.info logical, if date information is provided in the data. 
+#' @param cfold fold size on the columns
+#' @param rfold fold size on the rows.
+#' @param ... other arguments
+#' @return the cross-validated RMSE
+#' 
+#' @export
+#' @examples
+#' data(hqmr.data)
+#' # the real cross-validation will take some time to finish
+#' # impCV(hqmr.data)
+#' 
+impCV <- function (data, FUN = Cut, date.info = TRUE, 
+                   cfold = 10, rfold = 10, ...) {
   FUN <- match.fun(FUN)
-  
   if(!date.info){
   data <- as.matrix(data)
   } else {

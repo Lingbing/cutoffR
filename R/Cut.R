@@ -1,6 +1,30 @@
-Cut <-
-function (data, cutoff = 0.75, method = "pearson", ID = FALSE, ...) 
-{
+#' The simple version of CUTOFF
+#' @param data a data matrix with missing values
+#' @param cutoff the cutoff value for the CUTOFF method
+#' @param method CUTOFF method to be used. 
+#' @param ID If the reference information needs to be retained during the imputation
+#' if TRUE, then reference information can be retained from the returned list by 
+#' calling ID. If FALSE, then no reference information will be retained.
+#' @param ... other arguments
+#' @return If ID = FALSE, then return the imputed data matrix with no 
+#' missing values. If ID = TRUE, then return a list of two components:
+#' 
+#' \item{imputed}{The imputed data matrix with no missing values}
+#' \item{ID}{The reference information during the imputation}
+#' 
+#' @references Lingbing Feng, Gen Nowak, Alan. H. Welsh and Terry. J. O'Neill 
+#' (2014): CUTOFF: A Spatio-temporal Imputation Method, 
+#'\emph{Journal of Hydrology}. (submitted)
+#' 
+#' @export
+#' @examples
+#' data(hqmr.data)
+#' #' # check the number of missing values
+#' nmissing(hqmr.data[, -79])
+#' # impute the data by the CUTOFF method
+#' impdata <- Cut(data = hqmr.data)
+#' nmissing(impdata)
+Cut <- function (data, cutoff = 0.75, method = "pearson", ID = FALSE, ...) {
     chunk <- as.matrix(subset(data, select = -date))
     cor_matrix <- cor(chunk, use = "complete.obs", method = method)
     diag(cor_matrix) <- 0

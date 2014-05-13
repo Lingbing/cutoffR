@@ -1,1 +1,18 @@
-exportPattern("^[[:alpha:]]+")
+
+import(ggplot2)
+import(reshape2)
+
+
+export(CosK,
+       Cut,
+       cutoff,
+       EpanK,
+       GaussK,
+       Grmse,
+       HeatStruct,
+       impCV,
+       MissSimulation,
+       nmissing,
+       UnifK
+    )
+

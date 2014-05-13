@@ -1,6 +1,7 @@
-#' The CUTOFF spatio-temporal imputation method
+#' The CUTOFF Spatio-temporal Imputation Method
 #' 
-#' This function implements the CUTOFF spatio-temporal imputation method in Feng et al.(2014)
+#' @details This function implements the CUTOFF spatio-temporal imputation 
+#' method that is described in Feng et al.(2014)
 #' @param data a matrix or data frame with missing values
 #' @param N a number indicating the number used for the "CUTOFF by number" method
 #' @param cutoff a number indicating the cutoff value used fot he "CUTOFF by correlation" method
@@ -27,7 +28,24 @@
 #' @param keep.ID if the reference ID for each missing stations need to be kept. If TRUE, relevant ID information can be retrieved after imputation.
 #' Default is FALSE.
 #' @param ... other arguments that can passed
+#' @return If keep.ID = FALSE, then return the imputed data matrix with no 
+#' missing values. If keep.ID = TRUE, then return a list of two components:
+#' 
+#' \item{imputed}{The imputed data matrix with no missing values}
+#' \item{ID}{The reference information during the imputation}
+#' 
+#' @references Lingbing Feng, Gen Nowak, Alan. H. Welsh and Terry. J. O'Neill 
+#' (2014): CUTOFF: A Spatio-temporal Imputation Method, 
+#'\emph{Journal of Hydrology}. (submitted)
+#' 
 #' @export
+#' @examples
+#' data(hqmr.data)
+#' # check the number of missing values
+#' nmissing(hqmr.data[, -79])
+#' # impute the data by the CUTOFF method
+#' impdata <- cutoff(data = hqmr.data)
+#' nmissing(impdata)
 cutoff <- function (data, N = 4, cutoff = 0.75, P = 5, M = floor(P/2), Adj = 1, 
                     space.weight = FALSE, method = c("correlation", "number", "penalty"), 
                     time.opts = c("average", "adjacent"), 

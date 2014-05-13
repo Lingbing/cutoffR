@@ -13,4 +13,7 @@ RnwWeave: knitr
 LaTeX: pdfLaTeX
 
 BuildType: Package
+PackageUseDevtools: Yes
 PackageInstallArgs: --no-multiarch
+PackageBuildArgs: --resave-data
+PackageRoxygenize: rd
