@@ -19,6 +19,8 @@
 #' @export
 #' @examples
 #' data(hqmr.data)
+#' load the data
+#' add data
 #' #' # check the number of missing values
 #' nmissing(hqmr.data[, -79])
 #' # impute the data by the CUTOFF method
